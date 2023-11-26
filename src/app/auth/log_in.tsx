@@ -1,20 +1,32 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native'
+import {
+  View, Text, TextInput,
+  TouchableOpacity, StyleSheet
+} from 'react-native'
 
-import Herder from '../../components/Header'
+import { Link, router } from 'expo-router'
+
 import Button from '../../components/button'
+
+const handlePress = (): void => {
+  // ログイン
+  router.replace('/memo/list')
+}
 
 const LogIn = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Herder />
       <View style={styles.inner}>
         <Text style={styles.title}>Log In</Text>
         <TextInput style={styles.input} value='Email address' />
         <TextInput style={styles.input} value='password' />
-        <Button label='Submit' />
+        <Button label='Submit' onPress={handlePress}/>
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registered?</Text>
-          <Text style={styles.footerLink}>Sign up here!</Text>
+          <Link href='/auth/sign_up' asChild>
+            <TouchableOpacity>
+              <Text style={styles.footerLink}>Sign up here!</Text>
+            </TouchableOpacity>
+          </Link>
         </View>
       </View>
     </View>
