@@ -1,10 +1,10 @@
 import {
   View, TextInput, StyleSheet, KeyboardAvoidingView
 } from 'react-native'
+import { router } from 'expo-router'
 
 import CircleButton from '../../components/CircleButton'
 import Icon from '../../components/icon'
-import { router } from 'expo-router'
 
 const handlePress = (): void => {
   router.back()
